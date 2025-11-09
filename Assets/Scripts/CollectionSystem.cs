@@ -7,6 +7,7 @@ public class CollectionSystem : MonoBehaviour
 {
     public GameObject prefabFish;
     private List<GameObject> fishOnScreen = new List<GameObject>();
+    public int totalFishCollected;
 
     void Start()
     {
@@ -47,5 +48,11 @@ public class CollectionSystem : MonoBehaviour
             return fishOnScreen[0];
         }    
         return null;
+    }
+
+    public void RemoveCollectedFish(GameObject collectedFish)
+    { 
+        fishOnScreen.Remove(collectedFish);
+        totalFishCollected++;
     }
 }

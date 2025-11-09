@@ -47,4 +47,23 @@ public class Ship : MonoBehaviour
             transform.rotation = Quaternion.identity;
         }
     }
+
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if (isMoving && other.gameObject.CompareTag("Fish"))
+        {
+            if (other.gameObject == targetFish)
+            {
+                CollectFish(targetFish);
+            }    
+
+        }
+    }
+
+    void CollectFish(GameObject collectedFish)
+    {
+        fishCollector.RemoveCollectedFish(collectedFish);
+        Destroy(collectedFish);
+        targetFish = fishCollector.GetNextTarget();
+    }
 }
