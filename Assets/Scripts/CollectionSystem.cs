@@ -39,4 +39,13 @@ public class CollectionSystem : MonoBehaviour
             fishOnScreen.Add(fish);
         }
     }
+
+    public GameObject GetNextTarget()
+    {
+        if (fishOnScreen.Count > 0)
+        {
+            return fishOnScreen[0];
+        }    
+        return null;
+    }
 }
